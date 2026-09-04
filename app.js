@@ -13,7 +13,7 @@
   }
   window.hidePlayer=()=>{player.classList.remove('open');frame.src='';current=null;history.replaceState(null,'',location.pathname);renderList()};
   window.fullscreen=()=>{const request=playerFrame.requestFullscreen||playerFrame.webkitRequestFullscreen;if(request)request.call(playerFrame)};
-  window.shareCurrent=async()=>{if(!current)return;const url=current.type==='genially'?'https://view.genially.com/'+current.id:location.origin+location.pathname+'?v='+encodeURIComponent(current.id);try{await navigator.clipboard.writeText(url);share.textContent='✓ Gekopieerd';setTimeout(()=>share.textContent='🔗 Deel',2000)}catch(error){prompt('Kopieer deze link:',url)}};
+  window.shareCurrent=async()=>{if(!current)return;const url=current.type==='genially'?'https://view.genially.com/'+current.id:'https://nederlandsoefenen.github.io/nt2/?v='+encodeURIComponent(current.id);try{await navigator.clipboard.writeText(url);share.textContent='✓ Gekopieerd';setTimeout(()=>share.textContent='🔗 Deel',2000)}catch(error){prompt('Kopieer deze link:',url)}};
   document.querySelectorAll('.filter').forEach(button=>button.onclick=()=>{filter=button.dataset.filter;document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b===button));renderList()});
   renderTabs();renderList();
   const video=params.get('v'),genially=params.get('g'),direct=video||genially;
