@@ -13,15 +13,14 @@
 .standalone .player-actions .action:last-child {
     display: none;
 }
-
 .standalone .player-frame {
-    height: calc(100vh - 89px);
-    min-height: 320px;
-    aspect-ratio: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
 }
 
-@media (max-width: 650px) {
-    .standalone .player-frame {
-        height: calc(100vh - 87px);
-    }
+.standalone .player-frame iframe {
+    width: 100%;
+    height: 100%;
 }
