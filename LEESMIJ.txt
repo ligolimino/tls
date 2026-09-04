@@ -1,0 +1,20 @@
+TLS-WEBSITE UPLOADEN NAAR GITHUB
+
+1. Pak het zipbestand eerst uit op je computer.
+2. Open de uitgepakte map "tls".
+3. Ga in de lege GitHub-repository naar "uploading an existing file".
+4. Sleep de volledige inhoud van de map naar het uploadvak:
+   - index.html
+   - style.css
+   - app.js
+   - map alfa-a
+   - map alfa-b
+5. Klik onderaan op "Commit changes".
+6. Open daarna Settings > Pages.
+7. Kies bij Source "Deploy from a branch".
+8. Selecteer "main" en "/ (root)" en klik op Save.
+
+De website verschijnt daarna op:
+https://ligolimino.github.io/tls/
+
+Belangrijk: upload niet alleen het zipbestand. Pak het eerst uit en upload de inhoud.
