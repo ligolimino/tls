@@ -14,13 +14,9 @@
   }
   function prepareMobileVideo(){
     document.body.classList.add('video-standalone');
-    const fullscreenButton=document.querySelector('.player-actions .action:first-child');
-    fullscreenButton.textContent='⛶ Bekijk op volledig scherm';fullscreenButton.onclick=enterVideoFullscreen;
     const hint=document.createElement('div');hint.className='rotate-hint';hint.innerHTML='<span class="phone-icon">▯</span><span>Draai je gsm voor een groter beeld</span>';playerFrame.appendChild(hint);
     const endScreen=document.createElement('div');endScreen.className='video-end-screen';endScreen.innerHTML='<button type="button">↻ Bekijk opnieuw</button>';endScreen.querySelector('button').onclick=()=>{endScreen.classList.remove('show');if(youtubePlayer){youtubePlayer.seekTo(0);youtubePlayer.playVideo()}};playerFrame.appendChild(endScreen);connectYouTube(endScreen)
   }
-  async function enterVideoFullscreen(){const request=playerFrame.requestFullscreen||playerFrame.webkitRequestFullscreen;if(request){try{await request.call(playerFrame);if(screen.orientation&&screen.orientation.lock){try{await screen.orientation.lock('landscape')}catch(error){}}return}catch(error){}}const hint=document.querySelector('.rotate-hint');if(hint){hint.classList.add('attention');hint.querySelector('span:last-child').textContent='Draai je gsm en gebruik de fullscreenknop in de video'}}
-
   window.hidePlayer=()=>{player.classList.remove('open');frame.src='';current=null;history.replaceState(null,'',location.pathname);renderList()};
   window.fullscreen=()=>{const request=playerFrame.requestFullscreen||playerFrame.webkitRequestFullscreen;if(request)request.call(playerFrame)};
   window.shareCurrent=async()=>{if(!current)return;const url=current.type==='genially'?'https://view.genially.com/'+current.id:location.origin+location.pathname+'?v='+encodeURIComponent(current.id);try{await navigator.clipboard.writeText(url);share.textContent='✓ Gekopieerd';setTimeout(()=>share.textContent='🔗 Deel',2000)}catch(error){prompt('Kopieer deze link:',url)}};
