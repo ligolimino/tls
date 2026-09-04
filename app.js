@@ -50,5 +50,5 @@
   document.querySelectorAll('.filter').forEach(button=>button.onclick=()=>{filter=button.dataset.filter;document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b===button));renderList()});
   renderTabs();renderList();
   const video=params.get('v'),genially=params.get('g'),direct=video||genially;
-  if(direct){const item=config.items.find(x=>x.id===direct&&x.type===(video?'video':'genially'));if(item){theme=item.theme;renderTabs();openItem(item)}}
+  if(direct){const item=config.items.find(x=>x.id===direct&&x.type===(video?'video':'genially'));if(item){document.body.classList.add('standalone');theme=item.theme;renderTabs();openItem(item)}}
 })();
